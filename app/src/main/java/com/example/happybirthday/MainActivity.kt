@@ -4,10 +4,7 @@ import androidx.compose.foundation.Image
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -28,7 +25,7 @@ class MainActivity : ComponentActivity() {
       HappyBirthdayTheme {
         // A surface container using the 'background' color from the theme
         Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
-          GreetingText(message = "Happy Birthday Sam!", from = "From Emma")
+          GreetingImage(message = "Happy Birthday Sam!", from = "From Emma")
         }
       }
     }
@@ -50,7 +47,12 @@ fun GreetingText(message: String, from: String, modifier: Modifier = Modifier) {
 @Composable
 fun GreetingImage(message: String, from: String, modifier: Modifier = Modifier) {
   val image = painterResource(R.drawable.androidparty)
-  Image(painter = image, contentDescription = null)
+  Box {
+    Image(painter = image, contentDescription = null)
+    GreetingText(message = message, from = from, modifier = Modifier
+      .fillMaxSize()
+      .padding(8.dp))
+  }
 }
 
 @Preview(showBackground = true)
