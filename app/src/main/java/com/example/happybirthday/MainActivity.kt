@@ -1,5 +1,6 @@
 package com.example.happybirthday
 
+import androidx.compose.foundation.Image
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -13,6 +14,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -37,16 +39,24 @@ class MainActivity : ComponentActivity() {
 fun GreetingText(message: String, from: String, modifier: Modifier = Modifier) {
   Column(verticalArrangement = Arrangement.Center, modifier = modifier) {
     Text(text = message, fontSize = 100.sp, lineHeight = 116.sp, textAlign = TextAlign.Center)
-    Text(text = from, fontSize = 36.sp, modifier = Modifier
-      .padding(16.dp)
-      .align(alignment = Alignment.End))
+    Text(
+      text = from, fontSize = 36.sp, modifier = Modifier
+        .padding(16.dp)
+        .align(alignment = Alignment.End)
+    )
   }
+}
+
+@Composable
+fun GreetingImage(message: String, from: String, modifier: Modifier = Modifier) {
+  val image = painterResource(R.drawable.androidparty)
+  Image(painter = image, contentDescription = null)
 }
 
 @Preview(showBackground = true)
 @Composable
 fun BirthdayCardPreview() {
   HappyBirthdayTheme {
-    GreetingText(message = "Happy Birthday Sam!", from = "From Emma")
+    GreetingImage("Happy Birthday Sam!", "From Emma")
   }
 }
