@@ -28,7 +28,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun GreetingText(message: String, modifier: Modifier = Modifier) {
-  Text(text = message)
+  Text(text = message, fontSize = 100.sp, lineHeight = 116.sp)
 }
 
 @Preview(showBackground = true)
