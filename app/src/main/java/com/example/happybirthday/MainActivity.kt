@@ -21,6 +21,7 @@ class MainActivity : ComponentActivity() {
       HappyBirthdayTheme {
         // A surface container using the 'background' color from the theme
         Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
+          GreetingText(message = "Happy Birthday Sam!", from = "From Emma")
         }
       }
     }
